@@ -1,4 +1,4 @@
-setlocal textwidth=72
+au FileType gitcommit setlocal textwidth=72
 setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal expandtab
