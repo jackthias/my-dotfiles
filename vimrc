@@ -7,8 +7,10 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'faith/vim-go'
+Plugin 'fatih/vim-go'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'rainglow/vim'
+Plugin 'flazz/vim-colorschemes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -16,11 +18,11 @@ filetype plugin indent on    " required
 
 
 " Expand tabs to 4 spaces
-setlocal tabstop=4
-setlocal shiftwidth=4
-setlocal expandtab
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
-setlocal autoindent
+set autoindent
 
 " Git commit messages wrapped to 72 chars
 au FileType gitcommit setlocal textwidth=72
@@ -28,7 +30,7 @@ set number " show line numbers
 
 " Syntax highlighting
 syntax on
-colorscheme delek
+colorscheme wwdc16
 
 set diffopt=filler,vertical " Show diff side by side
 
