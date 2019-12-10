@@ -24,6 +24,13 @@ set expandtab
 
 set autoindent
 
+" Back up files.
+set backupdir=~/backup/vim
+set dir=~/backup/vim/swap
+set undodir=~/backup/vim/undos
+set undofile
+set bk
+
 " Git commit messages wrapped to 72 chars
 au FileType gitcommit setlocal textwidth=72
 set number " show line numbers
@@ -34,9 +41,14 @@ colorscheme wwdc16
 
 set diffopt=filler,vertical " Show diff side by side
 
+" Datetime in Status Bar
+set ruler
+set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
+
 " Functions
 noremap <SPACE> <C-F> " space to scroll down 
 abb _me jackthias@icloud.com
 com! Py ! python %
 com! Wc ! wc %
 com! Go ! go run %
+com! Pbcopy %w !pbcopy
