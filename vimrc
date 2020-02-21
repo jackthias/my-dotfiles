@@ -11,6 +11,9 @@ Plugin 'fatih/vim-go'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'rainglow/vim'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'rhysd/committia.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -23,6 +26,13 @@ set shiftwidth=4
 set expandtab
 
 set autoindent
+set spell
+
+" Git Configuration
+set autoread
+autocmd FocusGained,CursorHold ?* if getcmdwintype() == '' | checktime | endif
+
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' "highlight merge conflicts
 
 " Back up files.
 set backupdir=~/backup/vim
@@ -33,6 +43,8 @@ set bk
 
 " Git commit messages wrapped to 72 chars
 au FileType gitcommit setlocal textwidth=72
+au FileType gitcommit setlocal colorcolumn=43
+au FileType gitcommit match ErrorMsg /\%1l.\%>51v/
 set number " show line numbers
 
 " Syntax highlighting
@@ -52,3 +64,5 @@ com! Py ! python %
 com! Wc ! wc %
 com! Go ! go run %
 com! Pbcopy %w !pbcopy
+com! Jq %!python -m json.tool
+
